@@ -1,11 +1,7 @@
-// import "./App.css";
 import companyLogo from "./assets/img/companyLogo.png";
 import banner from "./assets/img/banner.jpg";
-import slot from "./assets/img/slots.jpg";
-import gotti from "./assets/img/goti.jpg";
-import pokker from "./assets/img/poker.jpg";
-import roullete from "./assets/img/roullete.jpg";
-import fortune from "./assets/img/fortune.jpg";
+import { CasinoSection, HouseSection, SidebarData } from "./const/index";
+import { GameSection, SideBar } from "./components/index";
 
 function App() {
   return (
@@ -19,145 +15,13 @@ function App() {
         </header>
 
         <div id="menu-list" className="flex flex-col gap-8">
-          <section className="group/casino flex flex-col gap-4 hover:animate-float ">
-            <div className="flex place-items-center gap-2 cursor-pointer ">
-              <header className="text-xl text-white font-semibold capitalize">
-                Casino
-              </header>
-              <article className="text-2xl font-bold text-fav">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                >
-                  <g transform="rotate(-90 12 12)">
-                    <path
-                      stroke="currentColor"
-                      stroke-dasharray="8"
-                      stroke-dashoffset="8"
-                      stroke-linecap="round"
-                      stroke-width="2"
-                      d="M9 12L14 7M9 12L14 17"
-                      fill="currentColor"
-                    >
-                      <animate
-                        fill="freeze"
-                        attributeName="stroke-dashoffset"
-                        dur="0.3s"
-                        values="8;0"
-                      />
-                    </path>
-                  </g>
-                </svg>
-              </article>
-            </div>
-
-            <a
-              className="flex hover:animate-jiggle  place-items-center gap-4 text-sm font-normal bg-[#24262B] rounded-lg text-white p-2 "
-              href=""
-            >
-              <header>🎰</header>
-              <article>Slots</article>
-            </a>
-
-            <a
-              href=""
-              className="flex hover:animate-jiggle  place-items-center gap-4 text-sm font-normal bg-[#24262B] rounded-lg text-white p-2"
-            >
-              <header>🎲</header>
-              <article>Craps</article>
-            </a>
-          </section>
-
-          <section className="group/house flex flex-col gap-4 hover:animate-float">
-            <div className="flex place-items-center gap-2 cursor-pointer ">
-              <header className="text-xl text-white font-semibold capitalize">
-                House Games
-              </header>
-              <article className="text-2xl font-bold text-fav">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                >
-                  <g transform="rotate(-90 12 12)">
-                    <path
-                      stroke="currentColor"
-                      stroke-dasharray="8"
-                      stroke-dashoffset="8"
-                      stroke-linecap="round"
-                      stroke-width="2"
-                      d="M9 12L14 7M9 12L14 17"
-                      fill="currentColor"
-                    >
-                      <animate
-                        fill="freeze"
-                        attributeName="stroke-dashoffset"
-                        dur="0.3s"
-                        values="8;0"
-                      />
-                    </path>
-                  </g>
-                </svg>
-              </article>
-            </div>
-
-            <a
-              href=""
-              className=" flex  hover:animate-jiggle place-items-center gap-4 text-sm font-normal  bg-[#24262B] rounded-lg text-white p-2"
-              onClick={() => console.log("clicked")}
-            >
-              <header>💫</header>
-              <article>Wheel Of Fortune</article>
-            </a>
-
-            <a
-              href=""
-              className=" flex hover:animate-jiggle place-items-center gap-4 text-sm font-normal bg-[#24262B] rounded-lg text-white p-2"
-              onClick={() => console.log("clicked")}
-            >
-              <header>🎥</header>
-              <article>Video Poker</article>
-            </a>
-
-            <a
-              href=""
-              className=" flex hover:animate-jiggle place-items-center gap-4 text-sm font-normal bg-[#24262B] rounded-lg text-white p-2"
-              onClick={() => console.log("clicked")}
-            >
-              <header>🎴</header>
-              <article>Baccarat</article>
-            </a>
-
-            <a
-              href=""
-              className=" flex hover:animate-jiggle place-items-center gap-4 text-sm font-normal bg-[#24262B] rounded-lg text-white p-2"
-              onClick={() => console.log("clicked")}
-            >
-              <header>♠️</header>
-              <article>Poker</article>
-            </a>
-
-            <a
-              href=""
-              className=" flex hover:animate-jiggle place-items-center gap-4 text-sm font-normal bg-[#24262B] rounded-lg text-white p-2"
-              onClick={() => console.log("clicked")}
-            >
-              <header>🎡</header>
-              <article>Roulette</article>
-            </a>
-
-            <a
-              href=""
-              className=" flex hover:animate-jiggle place-items-center gap-4 text-sm font-normal bg-[#24262B] rounded-lg text-white p-2"
-              onClick={() => console.log("clicked")}
-            >
-              <header>🃏</header>
-              <article>BlackJack</article>
-            </a>
-          </section>
+          {SidebarData.map((data, id) => (
+            <SideBar
+              key={data.id + id}
+              menuItem={data.children}
+              header={data.header}
+            />
+          ))}
         </div>
       </section>
 
@@ -193,35 +57,13 @@ function App() {
             </article>
 
             <div className="flex mt-4 justify-center">
-              <a
-                className="w-[50%] h-[180px] rounded-xl hover:animate-pulsing cursor-pointer relative"
-                style={{
-                  background: `url(${slot}) no-repeat`,
-                }}
-              >
-                <article className="text-xl font-extrabold text-hold z-10 absolute bottom-14 left-2">
-                  Slots
-                </article>
-
-                <button className="text-md bg-white p-1 font-normal text-hold z-10 absolute bottom-5 left-2">
-                  Play game
-                </button>
-              </a>
-
-              <a
-                className="w-[50%] h-[180px] rounded-2xl hover:animate-pulsing cursor-pointer relative"
-                style={{
-                  background: `url(${gotti}) no-repeat`,
-                }}
-              >
-                <article className="text-xl font-extrabold text-black-900 z-10 absolute bottom-14 left-2">
-                  Craps
-                </article>
-
-                <button className="text-md font-normal bg-brand p-1 text-hold z-10 absolute bottom-5 left-2">
-                  Play game
-                </button>
-              </a>
+              {CasinoSection.map((game, id) => (
+                <GameSection
+                  key={game.id + id}
+                  imgUrl={game.imgUrl}
+                  title={game.title}
+                />
+              ))}
             </div>
           </section>
 
@@ -232,56 +74,15 @@ function App() {
             </article>
 
             <section className="grid grid-cols-3 p-3  gap-4">
-              <div className=" flex mt-4 justify-center ">
-                <a
-                  className="w-[100%] h-[180px] rounded-xl hover:animate-pulsing cursor-pointer relative"
-                  style={{
-                    background: `url(${pokker}) no-repeat`,
-                  }}
-                >
-                  <article className="text-xl font-extrabold text-hold z-10 absolute bottom-14 left-2">
-                    Poker
-                  </article>
-
-                  <button className="text-md bg-white p-1 font-normal text-hold z-10 absolute bottom-5 left-2">
-                    Play game
-                  </button>
-                </a>
-              </div>
-
-              <div className=" flex mt-4 justify-center">
-                <a
-                  className="w-[100%] h-[180px] rounded-2xl hover:animate-pulsing cursor-pointer relative"
-                  style={{
-                    background: `url(${roullete}) no-repeat`,
-                  }}
-                >
-                  <article className="text-xl font-extrabold text-hold z-10 absolute bottom-14 left-2">
-                    Roullete
-                  </article>
-
-                  <button className="text-md font-normal bg-brand p-1 text-hold z-10 absolute bottom-5 left-2">
-                    Play game
-                  </button>
-                </a>
-              </div>
-
-              <div className=" flex mt-4 justify-center">
-                <a
-                  className="w-[100%] h-[180px] rounded-2xl hover:animate-pulsing cursor-pointer relative"
-                  style={{
-                    background: `url(${fortune}) no-repeat`,
-                  }}
-                >
-                  <article className="text-xl font-extrabold text-hold z-10 absolute bottom-14 left-2">
-                    Wheel of fortune
-                  </article>
-
-                  <button className="text-md font-normal bg-brand p-1 text-hold z-10 absolute bottom-5 left-2">
-                    Play game
-                  </button>
-                </a>
-              </div>
+              {HouseSection.map((game, id) => (
+                <div className=" flex mt-4 justify-center " key={game.id + id}>
+                  <GameSection
+                    key={game.id + id}
+                    imgUrl={game.imgUrl}
+                    title={game.title}
+                  />
+                </div>
+              ))}
             </section>
           </section>
         </div>
